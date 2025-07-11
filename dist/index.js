@@ -43619,7 +43619,7 @@ async function createGlobalSummaryAnnotations(reportResult) {
 
 async function main() {
     try {
-        await validateSubscription();
+       // await validateSubscription();
         const inputPath = core.getInput('path');
         const checkName = core.getInput('name');
         const accessToken = core.getInput('access-token');
