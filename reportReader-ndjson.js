@@ -67,7 +67,7 @@ function reader(reportString) {
             } else if (element.pickle) {
                 processPickle(element, scenarios, steps, pickles, pickleSteps);
             } else if (element.testCase) {
-                processTestCase(element, pickles, testCases, testSteps, globalInfo);
+                processTestCase(element, pickles, testCases, testSteps, pickleSteps, globalInfo);
             } else if (element.testStepFinished) {
                 processTestStepFinished(element, testSteps, globalInfo);
             }
@@ -76,7 +76,7 @@ function reader(reportString) {
         }
     }
     
-    calculateFinalScenarioCount(globalInfo);
+    calculateFinalScenarioCount(globalInfo, testSteps);
     
     return {
         get listAllScenarioByFile() {
@@ -172,7 +172,7 @@ function processPickle(element, scenarios, steps, pickles, pickleSteps) {
     pickles[element.pickle.id] = pickle;
 }
 
-function processTestCase(element, pickles, testCases, testSteps, globalInfo) {
+function processTestCase(element, pickles, testCases, testSteps, pickleSteps, globalInfo) {
     globalInfo.scenarioNumber++;
     
     const testCaseSteps = element.testCase.testSteps.map(step => ({
@@ -225,7 +225,7 @@ function processTestStepFinished(element, testSteps, globalInfo) {
     }
 }
 
-function calculateFinalScenarioCount(globalInfo) {
+function calculateFinalScenarioCount(globalInfo, testSteps) {
     const processedScenarios = new Set();
     
     Object.values(testSteps).forEach(step => {
