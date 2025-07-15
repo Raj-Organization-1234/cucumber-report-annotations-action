@@ -7,7 +7,7 @@ This GitHub Action parses Cucumber test reports (JSON or NDJSON) and publishes t
 ## 🚀 Usage
 
 ```yaml
-- uses: step-security/cucumber-report-annotations-action@v1.7
+- uses: step-security/cucumber-report-annotations-action@v1
   with:
     access-token: ${{ secrets.GITHUB_TOKEN }}
     path: "**/cucumber-report.json"

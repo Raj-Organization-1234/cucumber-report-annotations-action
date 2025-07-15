@@ -1,5 +1,5 @@
 name: 'Cucumber Report to Annotations'
-description: 'Creates a GitHub Check summary from a Cucumber test run and lists the first N failed tests as annotations.'
+description: 'This GitHub Action parses Cucumber test reports (JSON or NDJSON) and publishes them as GitHub Annotations—making test feedback visible directly in pull requests and commits'
 
 branding:
   icon: check-square
