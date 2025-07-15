@@ -1,33 +1,28 @@
-Feature: Cucumber Test Scenarios
+Feature: Test file 
 
-  Background:
-    Given this step will fail
+    @NonFailedTest
+    @SuccessTest
+    Scenario: Scenario OK
+        When this step will success
 
-  Scenario: This scenario will fail because of background
-    When this step will success
 
-  @NonFailedTest
-  @SuccessTest
-  Scenario: Scenario OK
-    When this step will success
+    Scenario: Scenario KO
+        When this step will fail
 
-  Scenario: Scenario KO
-    When this step will fail
+    @SuccessTest
+    @NonFailedTest
+    @UndefinedStepTest
+    Scenario: Scenario with undefined step
+        Given this step will success
+        When this step is undefined
 
-  @SuccessTest
-  @NonFailedTest
-  @UndefinedStepTest
-  Scenario: Scenario with undefined step
-    Given this step will success
-    When this step is undefined
+    @NonFailedTest
+    Scenario: Scenario with pending step
+        When this step is pending
 
-  @NonFailedTest
-  Scenario: Scenario with pending step
-    When this step is pending
-
-  Scenario Outline: Scenario with Outline
-    Given this step will success using example <variable>
-    Examples:
-      | variable |
-      | tets     |
-      | test2    |
+    Scenario Outline: Scenario with Outline
+        Given this step will success using example <variable>
+    Examples: 
+        | variable |
+        | tets     |
+        | test2    |
