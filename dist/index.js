@@ -42246,22 +42246,22 @@ const reportReaderNdJson = __nccwpck_require__(7069);
 const path = __nccwpck_require__(1017);
 const axios = __nccwpck_require__(8757);
 
-async function validateSubscription() {
-  const API_URL = `https://agent.api.stepsecurity.io/v1/github/${process.env.GITHUB_REPOSITORY}/actions/subscription`;
+// async function validateSubscription() {
+//   const API_URL = `https://agent.api.stepsecurity.io/v1/github/${process.env.GITHUB_REPOSITORY}/actions/subscription`;
 
-  try {
-    await axios.get(API_URL, {timeout: 3000});
-  } catch (error) {
-    if (error.response) {
-      console.error(
-        'Subscription is not valid. Reach out to support@stepsecurity.io'
-      );
-      process.exit(1);
-    } else {
-      core.info('Timeout or API not reachable. Continuing to next step.');
-    }
-  }
-}
+//   try {
+//     await axios.get(API_URL, {timeout: 3000});
+//   } catch (error) {
+//     if (error.response) {
+//       console.error(
+//         'Subscription is not valid. Reach out to support@stepsecurity.io'
+//       );
+//       process.exit(1);
+//     } else {
+//       core.info('Timeout or API not reachable. Continuing to next step.');
+//     }
+//   }
+// }
 
 function createMemoizedFunction(fn) {
     const cache = new Map();
@@ -42430,7 +42430,7 @@ async function createGlobalSummaryAnnotations(reportResult) {
 
 async function main() {
     try {
-        await validateSubscription();
+       // await validateSubscription();
         const inputPath = core.getInput('path');
         const checkName = core.getInput('name');
         const accessToken = core.getInput('access-token');
